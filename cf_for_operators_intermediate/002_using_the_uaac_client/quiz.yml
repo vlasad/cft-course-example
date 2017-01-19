@@ -1,0 +1,18 @@
+questions:
+- formulation: "What is the UAA?"
+  type: option
+  options:
+  - "A component of a Cloud Foundry deployment"
+  - "A token server"
+  - "A multi-tenant identity management service"
+  answer: [0.2]
+- formulation: "How do you target the UAAC at the UAA located at 'my-batcave.com'?"
+  type: text
+  answer: 'uaac target uaa.my-batcave.com'
+- formulation: "Why is the UAAC necessary for an administrator?"
+  type: option
+  options:
+  - "It is part of the Cloud Foundry CLI"
+  - "It makes it easier to deploy applications"
+  - "You can perform complex operations on users and permissions"
+  answer: [2]
