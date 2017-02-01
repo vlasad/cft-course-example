@@ -11,3 +11,21 @@ resource "aws_instance" "example" {
     Name = "HW-1"
   }
 }
+
+
+output "jumpbox_ip" {
+  value = "192.168.0.2"
+}
+
+output "jumpbox_user" {
+  value = "ubuntu"
+}
+
+output "aws_key_path" {
+  value = "1234"
+}
+
+output "ssh_port" {
+  value = "22"
+}
+
