@@ -70,6 +70,12 @@ resource "aws_security_group" "training_sg" {
   }
 }
 
+resource "aws_subnet" "vpc_public_subnet" {
+    vpc_id = "${aws_vpc.training_vpc.id}"
+    map_public_ip_on_launch = true
+    cidr_block = "10.0.0.0/24"
+}
+
 resource "aws_instance" "example" {
   ami           = "ami-0ee2276e"
   instance_type = "t2.micro"
@@ -78,6 +84,9 @@ resource "aws_instance" "example" {
   }
   key_name = "${aws_key_pair.tango.key_name}"
   vpc_security_group_ids = ["${aws_security_group.training_sg.id}"]
+  subnet_id = "${aws_subnet.vpc_public_subnet.id}"
+  associate_public_ip_address = true
+  source_dest_check = false
 }
 
 resource "aws_key_pair" "tango" {
