@@ -4,6 +4,72 @@ provider "aws" {
   region     = "us-west-2"
 }
 
+resource "aws_vpc" "training_vpc" {
+    cidr_block = "10.0.0.0/16"
+    enable_dns_hostnames = true
+}
+
+resource "aws_security_group" "training_sg" {
+    vpc_id = "${aws_vpc.training_vpc.id}"
+    description = "Training security group"
+
+    ingress {
+        from_port = 22
+        to_port = 22
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    ingress {
+        from_port = 80
+        to_port = 80
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    ingress {
+        from_port = 443
+        to_port = 443
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    ingress {
+        from_port = 2222
+        to_port = 2222
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    ingress {
+        from_port = 25555
+        to_port = 25555
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    ingress {
+        from_port = 3306
+        to_port = 3306
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    ingress {
+        from_port = 5432
+        to_port = 5432
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+        from_port = 0
+        to_port = 0
+        protocol = "-1"
+        cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
 resource "aws_instance" "example" {
   ami           = "ami-0ee2276e"
   instance_type = "t2.micro"
@@ -11,6 +77,7 @@ resource "aws_instance" "example" {
     Name = "HW-1"
   }
   key_name = "${aws_key_pair.tango.key_name}"
+  vpc_security_group_ids = ["${aws_security_group.training_sg.id}"]
 }
 
 resource "aws_key_pair" "tango" {
