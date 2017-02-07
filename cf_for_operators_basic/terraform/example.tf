@@ -10,6 +10,12 @@ resource "aws_instance" "example" {
   tags {
     Name = "HW-1"
   }
+  key_name = "${aws_key_pair.tango.key_name}"
+}
+
+resource "aws_key_pair" "tango" {
+  key_name_prefix = "cf-training-"
+  public_key = "${var.platform_public_key}"
 }
 
 
@@ -27,9 +33,4 @@ output "aws_key_path" {
 
 output "ssh_port" {
   value = "22"
-}
-
-resource "aws_key_pair" "tango" {
-  key_name_prefix = "cf-training"
-  public_key = "${var.platform_public_key}"
 }
