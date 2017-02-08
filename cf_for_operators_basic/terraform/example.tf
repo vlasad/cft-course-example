@@ -115,7 +115,7 @@ resource "aws_key_pair" "tango" {
 
 
 output "jumpbox_ip" {
-  value = "192.168.0.2"
+  value = "aws_instance.example.public_ip"
 }
 
 output "jumpbox_user" {
