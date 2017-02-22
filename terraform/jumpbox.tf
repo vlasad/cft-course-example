@@ -150,12 +150,12 @@ resource "aws_instance" "training_jumpbox" {
     }
 
     provisioner "file" {
-        source = "scripts/check.sh"
+        source = "${path.module}/scripts/check.sh"
         destination = "/home/${var.jumpbox_user}/check.sh"
     }
 
     provisioner "file" {
-        source = "scripts/settings.sh"
+        source = "${path.module}/scripts/settings.sh"
         destination = "/home/${var.jumpbox_user}/settings.sh"
     }
 
