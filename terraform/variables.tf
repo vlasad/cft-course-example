@@ -11,6 +11,10 @@ variable "name_tag" {
     description = "Name of infrastructure from platform"
 }
 
+variable "uuid" {
+    description = "Unique prefix for all resources"
+}
+
 variable "jumpbox_user" {
     default = "vcap"
 }
@@ -27,9 +31,4 @@ variable "vpc_cidr" {
 variable "public_subnet_cidr" {
     description = "CIDR for the Public Subnet"
     default = "10.0.0.0/24"
-}
-
-variable "uuid" {
-    description = "Unique prefix for all resources"
-    default = "${uuid()}"
 }
