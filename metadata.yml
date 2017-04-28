@@ -12,3 +12,6 @@ lessons:
   - 004_cloud_foundry_org_and_space_management
   - 005_cloud_foundry_user_management
   - 006_quota_management_in_cloud_foundry
+iaas_provider: aws
+instance_flavour: m4.large
+  
