@@ -1,6 +1,6 @@
 variable "aws_access_key" {}
 variable "aws_secret_key" {}
-variable "platform_public_key" {}
+variable "platform_public_key_path" {}
 variable "platform_private_key_path" {}
 
 variable "owner_tag" {
