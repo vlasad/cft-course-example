@@ -16,7 +16,7 @@ iaas_provider: amazon
 instance_flavour: m4.large
 generators:
   - docker_external_port  
-params:
+parameters:
   - name: aws_access_key
     description: "AWS Access Key"
     type: text
