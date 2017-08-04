@@ -40,6 +40,3 @@ parameters:
       - ap-southeast-2
       - us-east-2
       - us-west-2
-  - name: aws_secret_key
-    description: "Some JSON"
-    type: text
