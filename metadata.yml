@@ -40,6 +40,6 @@ parameters:
       - ap-southeast-2
       - us-east-2
       - us-west-2
-  - name: account.json
+  - name: account_json
     description: "Key File"
     type: file
