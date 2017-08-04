@@ -41,5 +41,5 @@ parameters:
       - us-east-2
       - us-west-2
   - name: account.json
-    description: "AWS Access Key"
+    description: "Key File"
     type: file
