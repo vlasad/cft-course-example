@@ -20,9 +20,6 @@ parameters:
   - name: aws_access_key
     description: "AWS Access Key"
     type: text
-  - name: aws_access_key
-    description: "AWS Access Key"
-    type: text    
   - name: aws_secret_key
     description: "AWS Secret Key"
     type: text
